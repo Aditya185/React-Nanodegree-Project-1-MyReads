@@ -4,7 +4,7 @@ This is the final version for the final assessment project for Udacity's React F
 
 Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
 
-## TL;DR
+## How to run this project
 
 To get started developing right away:
 
