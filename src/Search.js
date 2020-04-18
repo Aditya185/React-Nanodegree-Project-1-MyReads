@@ -10,16 +10,15 @@ class Search extends React.Component{
         searchResults : []
     };
 
-    search = (e) => {
-        const query = e.target.value;
-        if (!query) {
+    search = (event) => {
+        const current_query = event.target.value;
+        if (!current_query) {
             this.setState({searchResults: []});
             return;
         }
 
-        //Call to the search API
         BooksAPI
-            .search(query, 20)
+            .search(current_query, 20)
             .then(searchResults => {
                 if (!searchResults || searchResults.error) {
                     this.setState({searchResults: []});
@@ -30,7 +29,7 @@ class Search extends React.Component{
                     const bookOnShelf = this
                         .props
                         .books
-                        .find(b => b.id === book.id);
+                        .find(bo => bo.id === book.id);
                     book.shelf = bookOnShelf
                         ? bookOnShelf.shelf
                         : "none";
