@@ -1,12 +1,12 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-import './App.css'
-import Search from './Search';
-import * as BooksAPI from './BooksAPI';
-import ListBook from './ListBook';
+import React from 'react';
+import './App.css';
+
 class Book extends React.Component {
  
-  
+    ShelfChanger = (e) => {
+        const shelf = e.target.value;
+        this.props.onShelfChange(this.props.book, shelf);
+    };
 
   render() {
       const {book} = this.props;
@@ -16,7 +16,7 @@ class Book extends React.Component {
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${ image}")` }}></div>
           <div className="book-shelf-changer">
-            <select>
+            <select onChange={this.ShelfChanger} value={book.shelf} >
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>

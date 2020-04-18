@@ -1,5 +1,5 @@
 import React from 'react';
-import * as BooksAPI from './BooksAPI';
+
 import Book from './Book';
 
 class BookShelf extends React.Component{
@@ -7,7 +7,7 @@ class BookShelf extends React.Component{
    
    
     render(){
-        const {bookshelfTitle,bookshelfBooks} = this.props;
+        const {bookshelfTitle,bookshelfBooks,onShelfChange} = this.props;
       
         return(
               <div>
@@ -18,7 +18,7 @@ class BookShelf extends React.Component{
                     {bookshelfBooks
                         .map((book) => {
                             return <li key={book.id}>
-                                <Book book={book} />
+                                <Book book={book} onShelfChange = {onShelfChange} />
                             </li>
                         })
                       }
